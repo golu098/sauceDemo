@@ -19,6 +19,8 @@ public class LoginSteps {
         DriverManager.getDriver().get(baseUrl);
     }
 
+
+
     @When("user enters {string} and {string}")
     public void user_enters_username_and_password(String username, String password) {
         new LoginPage(DriverManager.getDriver()).login(username, password);
@@ -80,4 +82,5 @@ public class LoginSteps {
 
         assert height > 0 && width > 0 : "Visual layout of products is broken or improperly rendered";
     }
+
 }
