@@ -30,6 +30,9 @@ public class BasePage {
     protected void type(By locator, String text) {
         waitForElementVisible(locator).sendKeys(text);
     }
+    protected void sendKeys(By locator, String text) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+    }
 
     protected String getText(By locator) {
         return waitForElementVisible(locator).getText();
@@ -42,4 +45,9 @@ public class BasePage {
             return false;
         }
     }
+    public void logout() {
+        click(By.id("react-burger-menu-btn"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link"))).click();
+    }
+
 }
